@@ -1,0 +1,32 @@
+{
+  "name": "apirest",
+  "version": "1.0.0",
+  "description": "Una apiRest para consumir las bases de Ecoquintas usando NodeJS, Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrupoEcoquintas/ApiRest.git"
+  },
+  "keywords": [
+    "nodejs",
+    "apiRest",
+    "JavaScript",
+    "Express"
+  ],
+  "author": "Luis R Zunniga S <lzuniga@ecoquintas.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GrupoEcoquintas/ApiRest/issues"
+  },
+  "homepage": "https://github.com/GrupoEcoquintas/ApiRest#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
