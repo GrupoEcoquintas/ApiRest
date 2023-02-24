@@ -8,6 +8,23 @@ const app = express();
 // La const morgan nos permite hacer uso del framework morgan
 const morgan = require('morgan');
 
+// Creo la const mysql que me permite hacer uso del framework
+const mysql = require('mysql');
+
+// Llamo mysql para crear la conexion con los datos del servidor de DESARROLLO EN AWS
+const connnectionAWSTest = mysql.createConnection({
+    host: 'localhost',
+    user: 'usuario-mysql',
+    password: 'contraseña-mysql',
+    database: 'nombre_DB',
+});
+
+// Manejo de Conexion o error 
+connnectionAWSTest.connect( (err)=> {
+    if (err)  throw (`disconnected ${ err } `); 
+    console.log('successfully connected');
+});
+
 //Configuraciones para solicitudes y respuestas
 app.set('port', process.env.PORT || 3000);
 //app.set('json spaces', 2);
