@@ -27,20 +27,23 @@ exports.consultaCliente = (req, res) => {
         }
         if (results[0].length === 0) {
             return res.status(404).json({ message: 'Cliente no encontrado ✖️' });
+            
         }
 
         //Obtener la fecha atual en formato UTC
         const currentDate = new Date().toUTCString();
 
+        const clienteData = results[0][0]; // Acceder al primer objeto en el array
+        
         //Instanciar el cliente
         const cliente = new Cliente(
-            results[0].nombre,
-            results[0].apellidos,
-            results[0].cedula,
-            results[0].tipo_cliente,
-            results[0].proyecto
+            clienteData.nombre,
+            clienteData.apellidos,
+            clienteData.cedula,
+            clienteData.tipo_cliente,
+            clienteData.proyecto,
         );
-        console.log(cliente);
+  
         // Agrega los encabezados
         res.setHeader('Content-Type', 'application/json'); //para setear el tipo de archivo que recibimos
         res.setHeader('Cache-Control', 'public, max-age=86400'); //para almacenar el caché un día 
@@ -49,7 +52,7 @@ exports.consultaCliente = (req, res) => {
         res.setHeader('Date', currentDate); //Fecha de la respuesta
         
         // Devuelve los resultados en un json
-        return res.json( {'results': results, date: currentDate, cliente});
+        return res.json( {date: currentDate, cliente});
         
     });
 };
