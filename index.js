@@ -7,7 +7,7 @@ const express = require('express');
 const cors = require('cors');
 
 // La const routes nos ayuda al manejo de rutas en nuestro archivo routes.js
-const clienteRoute = require('../routes/clienteRoute');
+const clienteRoute = require('./routes/clienteRoute');
 
 // La const morgan nos permite hacer uso del framework morgan
 const morgan = require('morgan');
